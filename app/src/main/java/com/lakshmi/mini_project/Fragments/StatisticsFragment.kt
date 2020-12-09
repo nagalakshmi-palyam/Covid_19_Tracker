@@ -18,9 +18,6 @@ import kotlinx.android.synthetic.main.fragment_statistics.*
 
 class StatisticsFragment : Fragment() {
     private lateinit var fregmentAdapter:FragMentAdapter
-    private lateinit var stateViewModel: StateViewModel
-    private  var stateName:String=" "
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,16 +44,9 @@ class StatisticsFragment : Fragment() {
     private fun InitializingAndsettingViewPager() {
         ViewPagerstatistics.adapter =  fregmentAdapter
         tbstatistics.setupWithViewPager(ViewPagerstatistics)
-        stateViewModel=ViewModelProvider(this).get(StateViewModel::class.java)
-        observeState()
+
     }
-    fun observeState(){
-     stateViewModel.states.observe(this,{
-         stateName=it
-         Log.d("Lakshmi",stateName)
-         Toast.makeText(context,stateName,Toast.LENGTH_SHORT).show()
-     })
-    }
+
 
 
 

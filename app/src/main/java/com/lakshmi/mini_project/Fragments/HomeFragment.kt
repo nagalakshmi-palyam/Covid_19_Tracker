@@ -65,7 +65,7 @@ class HomeFragment : Fragment(),View.OnClickListener,RecyclerviewItemClickListen
        tvhelpline3send.setOnClickListener(this)
        tvhelpline4send.setOnClickListener(this)
        ivsendmessage.setOnClickListener(this)
-       stateViewModel = ViewModelProvider(this).get(StateViewModel::class.java)
+       stateViewModel = ViewModelProvider(requireActivity()).get(StateViewModel::class.java)
        initList()
        madapter= CountryAdapter(context, countrylist)
        spinnerCountries.adapter=madapter
@@ -306,8 +306,9 @@ class HomeFragment : Fragment(),View.OnClickListener,RecyclerviewItemClickListen
     }
 
     override fun onItemClicked(responseStates: ResponseStates, position: Int) {
-        stateViewModel.states.value=responseStates.state
-    }
+        stateViewModel.states.value=responseStates.state.toString()
 
+
+    }
 
 }

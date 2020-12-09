@@ -30,12 +30,7 @@
             android:src="@drawable/covid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@+id/covid"
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+
         <LinearLayout
             android:background="@drawable/countryselector_bg"
             android:layout_marginLeft="250dp"
@@ -279,12 +274,18 @@
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>
+
     </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/backgroundimage"
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     <ImageView
-        android:layout_marginTop="100dp"
         android:visibility="visible"
         android:id="@+id/group"
-        android:layout_below="@+id/rlayout2"
+        android:layout_below="@+id/recyclerview"
         android:src="@drawable/group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

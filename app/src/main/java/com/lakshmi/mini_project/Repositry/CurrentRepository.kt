@@ -6,9 +6,9 @@ import com.lakshmi.mini_project.Network.Network
 import retrofit2.Callback
 
 class CurrentRepository(private val callback:Callback<ResponseCurrent>) {
-    fun getstatecurrentlist(){
+    fun getstatecurrentlist(stateName:String){
         val apiclient= Network.getInstance().create(Apiclient::class.java)
-        val call=apiclient.getCurrentDetails("ca")
+        val call=apiclient.getCurrentDetails(stateName)
         call.enqueue(callback)
     }
 }

@@ -18,6 +18,4 @@ class GlobalFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_global, container, false)
     }
-
-
 }

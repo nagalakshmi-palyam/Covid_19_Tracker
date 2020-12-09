@@ -26,6 +26,9 @@ class CurrentDetailsViewModel:ViewModel(),Callback<ResponseCurrent> {
     override fun onFailure(call: Call<ResponseCurrent>, t: Throwable) {
         mutablelist.value=UserUICurrent.Failure(t.message!!)
     }
+    fun getAPI(state:String){
+        repository.getstatecurrentlist(state)
+    }
 
 
 }
