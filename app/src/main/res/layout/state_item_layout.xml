@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/callbackground"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:padding="10dp"
+        android:text="Lakshmi"
+        android:background="@drawable/countryselector_bg"
+        android:textColor="@color/layoutbackground"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="150dp"
+        android:id="@+id/stateName"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

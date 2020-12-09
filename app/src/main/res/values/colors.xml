@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="itembackgroundcolor">#4C79FF</color>
+    <color name="layoutbackground">#473F97</color>
+    <color name="callbackground">#FF4D58</color>
+    <color name="affectedcardbackground">#FFB259</color>
+    <color name="recoveredbackground">#4CD97B</color>
+    <color name="activebackground">#4DB5FF</color>
+    <color name="serious">#9059FF</color>
+
+</resources>
