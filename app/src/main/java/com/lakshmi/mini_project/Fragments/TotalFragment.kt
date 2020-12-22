@@ -42,7 +42,8 @@ class TotalFragment : Fragment() {
         create(DetailsViewModel::class.java)
         stateViewModel=StateViewModelFactory(this.requireContext(),requireActivity()).
         create(StateViewModel::class.java)
-       // fetchfromdatabase()
+        dailyViewModel.getAPI("AK")
+        fetchfromdatabase()
 
        // observeLiveData()
 

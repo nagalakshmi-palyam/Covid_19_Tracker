@@ -39,6 +39,7 @@ class TodayFragment : Fragment() {
         stateViewModel= StateViewModelFactory(this.requireContext(),requireActivity()).
         create(StateViewModel::class.java)
        // observeState()
+        dailyViewModel.getAPI("AK")
         fetchfromdatabase()
 
     }

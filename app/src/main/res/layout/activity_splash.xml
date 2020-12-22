@@ -18,7 +18,7 @@
         android:textColor="#f51b00"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="200dp"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:layout_centerInParent="true"
         android:text="Stay Home Stay Safe........."
         android:layout_width="wrap_content"
