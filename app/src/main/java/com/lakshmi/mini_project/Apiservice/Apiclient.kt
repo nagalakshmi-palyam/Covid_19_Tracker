@@ -1,6 +1,7 @@
 package com.lakshmi.mini_project.Apiservice
 
 import com.lakshmi.mini_project.Model.ResponseCurrent
+import com.lakshmi.mini_project.Model.ResponseDaily
 import com.lakshmi.mini_project.Model.ResponseParticularDate
 import com.lakshmi.mini_project.Model.ResponseStates
 import retrofit2.Call
@@ -15,5 +16,7 @@ interface Apiclient {
     @GET("/v1/states/{state}/{date}.json")
     fun getdailyDetails(@Path("state") state:String,@Path("date")
     date:String):Call<ResponseParticularDate>
-
+     @GET("/v1/states/{state}/daily.json")
+     fun getTotalFragment(@Path("state")
+                          state:String):Call<List<ResponseDaily>>
 }

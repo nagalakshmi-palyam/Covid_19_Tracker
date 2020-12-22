@@ -4,10 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lakshmi.mini_project.Model.ResponseCurrent
-import com.lakshmi.mini_project.Model.ResponseStates
 import com.lakshmi.mini_project.Repositry.CurrentRepository
-import com.lakshmi.mini_project.Repositry.StateRepositry
-import com.lakshmi.mini_project.SealedClass.UserUI
 import com.lakshmi.mini_project.SealedClass.UserUICurrent
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,6 +26,7 @@ class CurrentDetailsViewModel:ViewModel(),Callback<ResponseCurrent> {
     fun getAPI(state:String){
         repository.getstatecurrentlist(state)
     }
+
 
 
 }

@@ -13,9 +13,8 @@ class StateViewHolder(private val view : View,private var itemClickListener: Rec
             stateName.setOnClickListener {
                 itemClickListener.onItemClicked(responseStates,position)
             }
-            btnnext.setOnClickListener {
-                itemClickListener.onItemClicked(responseStates,position)
-            }
+          
+
         }
     }
 

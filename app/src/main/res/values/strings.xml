@@ -7,4 +7,10 @@
     <string name="discription">If you feel sick with any of covid_19 symptoms please call or SMS
         us immediately for help</string>
     <string name="call_Now">Call Now</string>
+    <string name="LogIn">LogIn</string>
+    <string name="SignUp">SignUp</string>
+    <string name="Username">UserName</string>
+    <string name="Password">Password</string>
+    <string name="Prev">Prev</string>
+    <string name="next">next</string>
 </resources>

@@ -1,22 +1,24 @@
 package com.lakshmi.mini_project.Fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import com.lakshmi.mini_project.Adapter.MyCountryAdapter
+import com.lakshmi.mini_project.Listeners.FragmentClickListener
 import com.lakshmi.mini_project.R
 import kotlinx.android.synthetic.main.fragment_mycountry.*
-import kotlinx.android.synthetic.main.fragment_statistics.*
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-class MycountryFragment : Fragment() {
+class MycountryFragment : Fragment(){
     private lateinit var fregmentAdapter:MyCountryAdapter
-
+    private var mFragmentListener: FragmentClickListener? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+       
 
     }
     override fun onCreateView(
@@ -32,8 +34,7 @@ class MycountryFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             MycountryFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                   getString("statecode")
                 }
             }
 
@@ -46,12 +47,18 @@ class MycountryFragment : Fragment() {
     private fun setViewPagerAdapter() {
         fregmentAdapter = MyCountryAdapter(
             childFragmentManager,
-            FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+            FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+        )
 
     }
     private fun InitializingAndsettingViewPager() {
         statisticsViewPager.adapter =  fregmentAdapter
         tablayoutMycountry.setupWithViewPager(statisticsViewPager)
     }
+    fun setFragmentListener(fragmentListener: FragmentClickListener) {
+        mFragmentListener = fragmentListener
+    }
+
+
 
 }

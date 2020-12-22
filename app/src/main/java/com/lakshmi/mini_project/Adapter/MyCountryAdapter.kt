@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.lakshmi.mini_project.Fragments.TodayFragment
 import com.lakshmi.mini_project.Fragments.TotalFragment
 import com.lakshmi.mini_project.Fragments.YesterdayFragment
+import com.lakshmi.mini_project.Listeners.FragmentClickListener
 
 class MyCountryAdapter (fm: FragmentManager, behavior: Int) :
 
