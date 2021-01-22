@@ -1,10 +1,13 @@
 package com.lakshmi.mini_project.Fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.lakshmi.mini_project.R
 import com.lakshmi.mini_project.RoomDatabase.StateViewModelFactory
@@ -14,11 +17,10 @@ import com.lakshmi.mini_project.ViewModel.StateViewModel
 import kotlinx.android.synthetic.main.fragment_today.*
 
 class TodayFragment : Fragment() {
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var stateViewModel: StateViewModel
     private lateinit var dailyViewModel: DetailsViewModel
-    //private lateinit var statelistViewModel: StateListViewModel
-   // private lateinit var statelistViewmodel:StateListViewModel
-   // private lateinit var currentDetailsViewModel: CurrentDetailsViewModel
+    private var myState=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,8 +40,10 @@ class TodayFragment : Fragment() {
         create(DetailsViewModel::class.java)
         stateViewModel= StateViewModelFactory(this.requireContext(),requireActivity()).
         create(StateViewModel::class.java)
-       // observeState()
-        dailyViewModel.getAPI("AK")
+         sharedPreferences=PreferenceManager.getDefaultSharedPreferences(context)
+         myState=sharedPreferences.getString("state","").toString()
+        Toast.makeText(context,myState+"is",Toast.LENGTH_SHORT).show()
+         dailyViewModel.getAPI(myState)
         fetchfromdatabase()
 
     }
@@ -56,38 +60,8 @@ class TodayFragment : Fragment() {
             }
         })
     }
-//    fun observeState(){
-//        stateViewModel.states.observe(this,{
-//            Log.d("Lakshmi",it)
-//            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
-//            dailyViewModel.getAPI("it")
-//        })
-//
-//    }
-
-
-//    private fun observeLiveData() {
-//        currentDetailsViewModel.liveData.observe(this, {
-//            when (it) {
-//                is UserUICurrent.Success -> {
-//                    tvaffectednumbertoday.text=it.currentresponse.total.toString()
-//                    tvdeathcounttoday.text=it.currentresponse.death.toString()
-//                    tvrecoverednumbertoday.text=it.currentresponse.recovered.toString()
-//                    tvactivecounttoday.text=it.currentresponse.positive.toString()
-//                }
-//
-//                is UserUICurrent.Failure -> {
-//                    Toast.makeText(
-//                        requireActivity(),
-//                        "Error message ${it.error}",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//            }
-//        })
-//    }
-
 
 }
+
 
 

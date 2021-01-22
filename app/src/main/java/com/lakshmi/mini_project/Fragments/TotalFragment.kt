@@ -1,7 +1,9 @@
 package com.lakshmi.mini_project.Fragments
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,9 +21,9 @@ import kotlinx.android.synthetic.main.fragment_total.*
 import kotlinx.android.synthetic.main.state_item_layout.*
 
 class TotalFragment : Fragment() {
-    private var stateCode:String=" "
-    private lateinit var stateViewModel: StateViewModel
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var dailyViewModel: DetailsViewModel
+    private var myState=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +42,10 @@ class TotalFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         dailyViewModel = DetailsViewModelFactory(this.requireContext(),requireActivity()).
         create(DetailsViewModel::class.java)
-        stateViewModel=StateViewModelFactory(this.requireContext(),requireActivity()).
-        create(StateViewModel::class.java)
-        dailyViewModel.getAPI("AK")
-        fetchfromdatabase()
+        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context)
+        myState=sharedPreferences.getString("state","").toString()
+        Toast.makeText(context,myState+"is",Toast.LENGTH_SHORT).show()
+        dailyViewModel.getAPI(myState)
 
        // observeLiveData()
 

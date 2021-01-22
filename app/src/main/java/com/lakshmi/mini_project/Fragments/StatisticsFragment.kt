@@ -1,6 +1,8 @@
 package com.lakshmi.mini_project.Fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,7 +22,9 @@ import kotlinx.android.synthetic.main.fragment_statistics.*
 class StatisticsFragment : Fragment(),FragmentClickListener {
     private lateinit var stateViewModel: StateViewModel
     private lateinit var fregmentAdapter:FragMentAdapter
-    val data="";
+    var data="";
+    private lateinit var sharedPreferences: SharedPreferences
+
 
 
 
@@ -48,10 +52,15 @@ class StatisticsFragment : Fragment(),FragmentClickListener {
 //      //  observeState()
 
         arguments?.let {
-           val data = it.getString("data")
+            data = it.getString("data").toString()
             Toast.makeText(context,"State is " +data, Toast.LENGTH_SHORT).show()
 
+
         }
+        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString("state",data)
+        editor.commit()
         InitializingAndsettingViewPager()
 
     }

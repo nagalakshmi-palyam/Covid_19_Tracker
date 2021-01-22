@@ -1,10 +1,13 @@
 package com.lakshmi.mini_project.Fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.lakshmi.mini_project.R
 import com.lakshmi.mini_project.RoomDatabase.StateViewModelFactory
@@ -14,7 +17,8 @@ import com.lakshmi.mini_project.ViewModel.StateViewModel
 import kotlinx.android.synthetic.main.fragment_yesterday.*
 
 class YesterdayFragment : Fragment() {
-    private lateinit var stateViewModel: StateViewModel
+    private lateinit var sharedPreferences: SharedPreferences
+    private var myState=""
     private lateinit var dailyViewModel: DetailsViewModel
    // private lateinit var dailyViewModel: DailyViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,9 +37,10 @@ class YesterdayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         dailyViewModel = DetailsViewModelFactory(this.requireContext(),requireActivity()).
         create(DetailsViewModel::class.java)
-        stateViewModel= StateViewModelFactory(this.requireContext(),requireActivity()).
-        create(StateViewModel::class.java)
-        dailyViewModel.getAPI("AK")
+        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context)
+        myState=sharedPreferences.getString("state","").toString()
+        Toast.makeText(context,myState+"is", Toast.LENGTH_SHORT).show()
+        dailyViewModel.getAPI(myState)
         //observeState()
         fetchfromdatabase()
     }
