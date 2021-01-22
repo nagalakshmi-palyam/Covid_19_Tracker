@@ -5,7 +5,7 @@ import com.lakshmi.mini_project.Model.ResponseDaily
 import com.lakshmi.mini_project.Network.Network
 import retrofit2.Callback
 
-class DailyRepository(private val callback:Callback<List<ResponseDaily>>) {
+class DetailsRepository(private val callback:Callback<List<ResponseDaily>>) {
     fun getstatedailyDetails(statecode:String){
         val apiclient= Network.getInstance().create(Apiclient::class.java)
         val call=apiclient.getTotalFragment(statecode)

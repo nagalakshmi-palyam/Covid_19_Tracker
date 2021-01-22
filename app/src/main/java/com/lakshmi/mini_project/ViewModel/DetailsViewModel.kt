@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.lakshmi.mini_project.Model.ResponseDaily
-import com.lakshmi.mini_project.Repositry.DailyRepository
+import com.lakshmi.mini_project.Repositry.DetailsRepository
 import com.lakshmi.mini_project.RoomDatabaseForStatisticsFragment.Details
 import com.lakshmi.mini_project.RoomDatabaseForStatisticsFragment.DetailsDatabase
 import com.lakshmi.mini_project.SealedClass.UserUIDaily
@@ -19,7 +19,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DetailsViewModel(private val context: Context, private val owner: LifecycleOwner):ViewModel(),Callback<List<ResponseDaily>> {
-    private val repository= DailyRepository(this)
+    private val repository= DetailsRepository(this)
     private val mutablelist= MutableLiveData<UserUIDaily>()
     val liveData: LiveData<UserUIDaily> = mutablelist
     override fun onResponse(
@@ -55,7 +55,7 @@ class DetailsViewModel(private val context: Context, private val owner: Lifecycl
     }
 //    fun insertDataToDatabase(affected:String,recovered:String,deaths:String,serious:String,active:String) {
 //        CoroutineScope(Dispatchers.IO).launch {
-//            val details = TodayDetails(affected = affected,recovered = recovered,deaths = deaths,
+//            val details = TodayDetails(affected = afhttps://github.com/nagalakshmi-palyam/Covid_19_Tracker.gitfected,recovered = recovered,deaths = deaths,
 //                serious = serious,active = active)
 //            TodayDetailsDatabase.getInstance(context).todayDetailsDao.insertDetails(details)
 //        }
