@@ -9,12 +9,12 @@
  * It monitors data of each category and of covid patientsand  displays it.
  * Android Tools and Components used :
    
-    Android Tools          : Android Studio
-    Android Components     : Activities and Intents
-    Aditional Components   : RecycyclerView, Fragments
-    Architecture           : MVVM(Architectural Components : Livadata,View Model)
-    Database               : Roomdatase
-    API                    : Retrofit for Api calling
+   * Android Tools          : Android Studio
+   * Android Components     : Activities and Intents
+   * Aditional Components   : RecycyclerView, Fragments
+   * Architecture           : MVVM(Architectural Components : Livadata,View Model)
+   * Database               : Roomdatase
+   * API                    : Retrofit for Api calling
     
    
   
