@@ -5,5 +5,19 @@
 ![logout](https://user-images.githubusercontent.com/68853216/105529465-717de980-5d0c-11eb-8106-2b4774163bfa.png)
 ![statistics](https://user-images.githubusercontent.com/68853216/105529587-9a05e380-5d0c-11eb-89bc-d3594ccd3cfc.png)
 
+# Covid_19 Tracker app which gives information about deaths,affected,active,recovered and serious count of covid_patients of particular state of USA.
+# It monitors data of each category and of covid patientsand  displays it.
+# Android Tools and Components used :
+   
+    Android Tools          : Android Studio
+    Android Components     : Activities and Intents
+    Aditional Components   : RecycyclerView, Fragments
+    Architecture           : MVVM(Architectural Components : Livadata,View Model)
+    Database               : Roomdatase
+    API                    : Retrofit for Api calling
+    
+   
+  
+
 
 
