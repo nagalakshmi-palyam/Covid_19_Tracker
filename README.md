@@ -11,7 +11,7 @@
    
    * Android Tools          : Android Studio
    * Android Components     : Activities and Intents
-   * Aditional Components   : RecycyclerView, Fragments
+   * Additional Components   : RecycyclerView, Fragments
    * Architecture           : MVVM(Architectural Components : Livadata,View Model)
    * Database               : Roomdatase
    * API                    : Retrofit for Api calling
