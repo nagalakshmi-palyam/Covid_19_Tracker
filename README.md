@@ -30,7 +30,7 @@ Home Activity having Bottom navigation bar along with four fragments each frag,m
 
 <img src="app/images/logoutlogin.png" widht="100" height="600" > <img src="app/images/total.png" widht="100" height="600" >
 
-Total,Today and Yesterday fragments displays the deaths,active, recovered and serious counts of covid patients of that particular state that we want to know.
+Total,Today and Yesterday fragments displays the deaths,active, recovered and serious counts of covid patients of that particular state that we want to know. If we see symptoms we can call to helpline numbers.
 
 <img src="app/images/califo.png " widht="150" height="600" > <img src="app/images/callhelpline.png  " widht="150" height="600" >
 
