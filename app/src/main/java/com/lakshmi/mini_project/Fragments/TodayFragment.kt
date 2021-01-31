@@ -49,13 +49,34 @@ class TodayFragment : Fragment() {
     }
     fun fetchfromdatabase(){
         dailyViewModel.fetchDataFromDB().observe(this, Observer {
-            it.let{
-                for(i in 0 until it.size){
-                    tvaffectednumbertoday.text=it.get(i).affected
-                    tvdeathcounttoday.text=it.get(i).deaths
-                    tvrecoverednumbertoday.text=it.get(i).recovered
-                    tvactivecounttoday.text=it.get(i).active
-                    tvseriouscounttoady.text=it.get(i).serious
+            it.let {
+                for (i in 0 until it.size) {
+                    if(it.get(i).affected!=null) {
+                        tvaffectednumbertoday.text = it.get(i).affected
+                    } else {
+                        tvaffectednumbertoday.text="0";
+                    }
+                    if(it.get(i).deaths!=null) {
+                        tvdeathcounttoday.text = it.get(i).deaths
+                    } else {
+                        tvdeathcounttoday.text="0"
+                    }
+                    if(it.get(i).recovered!=null) {
+                        tvrecoverednumbertoday.text = it.get(i).recovered
+                    } else {
+                        tvrecoverednumbertoday.text="0"
+                    }
+                    if(it.get(i).active!=null) {
+                        tvactivecounttoday.text = it.get(i).active
+                    } else {
+                        tvactivecounttoday.text="0"
+                    }
+                    if(it.get(i).serious!=null) {
+                        tvseriouscounttoady.text = it.get(i).serious
+                    } else {
+                        tvseriouscounttoady.text="0"
+                    }
+
                 }
             }
         })

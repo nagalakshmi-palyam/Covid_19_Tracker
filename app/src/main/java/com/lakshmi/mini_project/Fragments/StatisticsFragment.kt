@@ -43,7 +43,7 @@ class StatisticsFragment : Fragment(),FragmentClickListener {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setViewPagerAdapter()
+            setViewPagerAdapter()
 //       val  stateViewModel= StateViewModelFactory(requireActivity(),this).create()
 //
 //        stateViewModel.liveState.observe(viewLifecycleOwner, Observer {

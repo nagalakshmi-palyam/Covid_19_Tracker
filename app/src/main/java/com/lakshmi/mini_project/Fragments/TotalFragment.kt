@@ -48,6 +48,7 @@ class TotalFragment : Fragment() {
         dailyViewModel.getAPI(myState)
 
        // observeLiveData()
+        fetchfromdatabase()
 
 
     }
@@ -55,11 +56,31 @@ class TotalFragment : Fragment() {
         dailyViewModel.fetchDataFromDB().observe(this, Observer {
             it.let{
                 for(i in 0 until it.size){
-                    tvaffectednumber.text=it.get(i).affected
-                    tvdeathcount.text=it.get(i).deaths
-                    tvrecoverednumber.text=it.get(i).recovered
-                    tvactivecount.text=it.get(i).active
-                    tvseriouscount.text=it.get(i).serious
+                    if(it.get(i).affected!=null) {
+                        tvaffectednumber.text = it.get(i).affected
+                    } else {
+                        tvaffectednumber.text="0"
+                    }
+                    if(it.get(i).deaths!=null) {
+                        tvdeathcount.text = it.get(i).deaths
+                    } else {
+                        tvdeathcount.text ="0"
+                    }
+                    if(it.get(i).recovered!=null) {
+                        tvrecoverednumber.text = it.get(i).recovered
+                    } else {
+                        tvrecoverednumber.text="0"
+                    }
+                    if(it.get(i).active!=null) {
+                        tvactivecount.text = it.get(i).active
+                    } else {
+                        tvactivecount.text ="0"
+                    }
+                    if(it.get(i).serious!=null) {
+                        tvseriouscount.text = it.get(i).serious
+                    } else {
+                        tvseriouscount.text ="0"
+                    }
                 }
             }
         })

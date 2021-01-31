@@ -18,9 +18,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailsViewModel(private val context: Context, private val owner: LifecycleOwner):ViewModel(),Callback<List<ResponseDaily>> {
-    private val repository= DetailsRepository(this)
-    private val mutablelist= MutableLiveData<UserUIDaily>()
+class DetailsViewModel(private val context: Context, private val owner: LifecycleOwner) :
+    ViewModel(), Callback<List<ResponseDaily>> {
+    private val repository = DetailsRepository(this)
+    private val mutablelist = MutableLiveData<UserUIDaily>()
+    private var statecode = ""
     val liveData: LiveData<UserUIDaily> = mutablelist
     override fun onResponse(
         call: Call<List<ResponseDaily>>,
@@ -31,10 +33,11 @@ class DetailsViewModel(private val context: Context, private val owner: Lifecycl
             CoroutineScope(Dispatchers.IO).launch {
                 for (i in 0 until it.size) {
                     val details = Details(
-                        affected =it[i].total.toString(), recovered =it[i].negative.toString(),
-                        deaths =it[i].death.toString(),
-                        serious =it[i].positive.toString(), active =it[i].hospitalizedCurrently.toString()
-                    )
+                        affected = it[i].total.toString(),
+                        recovered = it[i].negative.toString(),
+                        deaths = it[i].death.toString(),
+                        serious = it[i].positive.toString(),
+                        active = it[i].hospitalizedCurrently.toString())
                     DetailsDatabase.getInstance(context).todayDetailsDao.insertDetails(details)
                 }
             }
@@ -44,16 +47,20 @@ class DetailsViewModel(private val context: Context, private val owner: Lifecycl
     override fun onFailure(call: Call<List<ResponseDaily>>, t: Throwable) {
         //mutablelist.value= UserUIDaily.Failure(t.message!!)
     }
-    fun getAPI(statecode:String){
-       // repository.getstatedailyDetails(state)
-        DetailsDatabase.getInstance(context).todayDetailsDao.getAllDetails().observe(owner, Observer {
-            if(it.isNullOrEmpty()){
-                repository.getstatedailyDetails(statecode)
+
+    fun getAPI(statecode: String) {
+        this.statecode = statecode
+        // repository.getstatedailyDetails(state)
+        DetailsDatabase.getInstance(context).todayDetailsDao.getAllDetails()
+            .observe(owner, Observer {
+                if (it.isNullOrEmpty()) {
+                    repository.getstatedailyDetails(statecode)
+                }
             }
-        }
-        )
+            )
     }
-//    fun insertDataToDatabase(affected:String,recovered:String,deaths:String,serious:String,active:String) {
+
+    //    fun insertDataToDatabase(affected:String,recovered:String,deaths:String,serious:String,active:String) {
 //        CoroutineScope(Dispatchers.IO).launch {
 //            val details = TodayDetails(affected = afhttps://github.com/nagalakshmi-palyam/Covid_19_Tracker.gitfected,recovered = recovered,deaths = deaths,
 //                serious = serious,active = active)

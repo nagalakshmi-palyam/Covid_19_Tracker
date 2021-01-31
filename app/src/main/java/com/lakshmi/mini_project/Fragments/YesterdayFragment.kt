@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import com.lakshmi.mini_project.R
 import com.lakshmi.mini_project.RoomDatabase.StateViewModelFactory
 import com.lakshmi.mini_project.RoomDatabaseForStatisticsFragment.DetailsViewModelFactory
+import com.lakshmi.mini_project.SealedClass.UserUIDailyParticularDate
 import com.lakshmi.mini_project.ViewModel.DetailsViewModel
 import com.lakshmi.mini_project.ViewModel.StateViewModel
 import kotlinx.android.synthetic.main.fragment_yesterday.*
@@ -48,23 +49,35 @@ class YesterdayFragment : Fragment() {
         dailyViewModel.fetchDataFromDB().observe(this, Observer {
             it.let{
                 for(i in 0 until it.size){
-                    tvaffectednumberyesterday.text=it.get(i).affected
-                    tvdeathcountyesterday.text=it.get(i).deaths
-                    tvrecoverednumberyesterday.text=it.get(i).recovered
-                    tvactivecountyesterday.text=it.get(i).active
-                    tvseriouscountyesterday.text=it.get(i).serious
+                    if(it.get(i).affected!=null) {
+                        tvaffectednumberyesterday.text = it.get(i).affected
+                    } else {
+                        tvaffectednumberyesterday.text ="0"
+                    }
+                    if(it.get(i).affected!=null) {
+                        tvdeathcountyesterday.text = it.get(i).deaths
+                    } else {
+                        tvdeathcountyesterday.text ="0"
+                    }
+                    if(it.get(i).affected!=null) {
+                        tvrecoverednumberyesterday.text = it.get(i).recovered
+                    } else {
+                        tvrecoverednumberyesterday.text ="0"
+                    }
+                    if(it.get(i).affected!=null) {
+                        tvactivecountyesterday.text = it.get(i).active
+                    } else {
+                        tvactivecountyesterday.text ="0"
+                    }
+                    if(it.get(i).serious!=null) {
+                        tvseriouscountyesterday.text = it.get(i).serious
+                    } else {
+                        tvseriouscountyesterday.text ="0"
+                    }
                 }
             }
         })
     }
-//    fun observeState(){
-//        stateViewModel.states.observe(this,{
-//            Log.d("Lakshmi",it)
-//            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
-//            dailyViewModel.getAPI("it")
-//        })
-//
-//    }
 //    private fun observeLiveData() {
 //        dailyViewModel.liveData.observe(this, {
 //            when (it) {
