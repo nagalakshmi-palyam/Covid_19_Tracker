@@ -1,4 +1,6 @@
 # Covid_19_Tracker
+
+
 <img src="app/images/splashcovid.png" widht="150" height="600" >  <img src="app/images/signup.png"  widht="150" height="600" >
 <img src="app/images/home.png" widht="150" height="600" >   <img src="app/images/states.png" widht="150" height="600" >
 <img src="app/images/logoutlogin.png" widht="100" height="600" > <img src="app/images/total.png" widht="100" height="600" >
